@@ -1,3 +1,94 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  html {
+    @apply overflow-x-hidden;
+  }
+
+  body {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+
+  /* custom scrollBar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: #c82f57;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  /* prose custom */
+  .prose pre {
+    @apply relative;
+  }
+
+  .prose pre[data-language]::before {
+    @apply absolute right-2 top-2 text-base uppercase leading-4;
+    content: attr(data-language);
+    color: var(--font-color);
+    border-bottom: 2px solid currentColor;
+  }
+
+  .prose code::before,
+  .prose code::after {
+    @apply hidden;
+  }
+
+  .prose img {
+    @apply mx-auto mb-4 rounded shadow-md;
+  }
+
+  .prose p,
+  .prose li {
+    @apply text-justify;
+  }
+
+  .prose p:has(img) {
+    @apply relative;
+  }
+
+  /* custom page */
+  .page {
+    @apply relative min-h-screen px-0 tracking-wide sm:px-4;
+  }
+
+  .mask {
+    @apply shadow-inner;
+    will-change: height;
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  .mask:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -0.16rem;
+    width: 0.32rem;
+    height: 70%;
+    border-radius: 0.1rem;
+    background-color: #c82f57;
+    transform: translateY(-50%);
+  }
+
+  .meta {
+    @apply break-keep;
+  }
+
+  .meta svg {
+    @apply w-5;
+  }
+}

@@ -1,0 +1,170 @@
+---
+title: Next.js项目如何设置ESLint、Prettier、Husky+lint-staged
+description: 如何在Next.js项目中，通过配置ESLint、Prettier、Husky、lint-staged来进行项目统一格式化管理?
+created_at: 2023-10-30T03:22:44Z
+updated_at: 2023-11-11T05:44:44Z
+labels:
+  - React
+  - 配置
+  - Next.js
+---
+
+### 安装项目
+
+```
+# 在安装项目时，可以使用项目自带的 ESlint 配置
+
+npx create-next-app@latest --typescript
+```
+
+### 添加 `Prettier`
+
+```
+yarn add -D prettier eslint-config-prettier eslint-plugin-prettier prettier-plugin-tailwindcss
+yarn add -D @typescript-eslint/parser @typescript-eslint/eslint-plugin @ianvs/prettier-plugin-sort-imports
+```
+
+配置 `.eslintrc.json`
+
+```
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "next",
+        "next/core-web-vitals",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+    ],
+    "rules": {
+        "@next/next/no-img-element": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "import/no-anonymous-default-export": [
+            "error",
+            {
+                "allowArray": false,
+                "allowArrowFunction": false,
+                "allowAnonymousClass": false,
+                "allowAnonymousFunction": false,
+                "allowCallExpression": true,
+                "allowNew": false,
+                "allowLiteral": false,
+                "allowObject": true
+            }
+        ]
+    }
+}
+```
+
+添加并配置 `.prettierrc.json`
+
+```
+{
+    "printWidth": 120,
+    "useTabs": false,
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "plugins": [
+        "@ianvs/prettier-plugin-sort-imports",
+        "prettier-plugin-tailwindcss"
+    ]
+}
+```
+
+添加并配置 `.prettierignore`
+
+```
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+```
+
+创建并添加 `.vscode/settings.json`
+
+```
+{
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.format": true
+  }
+}
+
+```
+
+### 添加 `Husky` 和 `Lint-Staged`
+
+```
+# 首先
+yarn add --dev husky lint-staged
+
+# 然后
+npx husky install
+```
+
+在 `package.json` 中添加配置
+
+```
+{
+    "scripts": {
+        "prepare": "husky install"
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx}": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "*.{css,scss,json,md}": [
+            "prettier --write"
+        ]
+    }
+}
+```
+
+运行命令
+
+```
+npx husky add .husky/pre-commit "npx lint-staged"
+```
