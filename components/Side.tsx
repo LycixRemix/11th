@@ -12,7 +12,7 @@ export default function Side() {
   return (
     <div className="relative h-full w-full select-none">
       <Menu className="absolute right-2 top-1 z-50" />
-      <Image src="/image/202312051842.jpg" fill className="absolute h-full w-full object-cover" alt="" priority />
+      <Image src="/images/wallhaven-7pmw83.webp" fill className="absolute h-full w-full object-cover" alt="" priority />
       <div className="absolute top-0 h-full w-full bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAKUlEQVQImU3IMREAIAgAwJfNkQCEsH8cijjpMf6vnXlQaIiJFx+omEBfmqIEZLe2jzcAAAAASUVORK5CYII=')] object-cover" />
       <div className="absolute bottom-2 left-0 right-0 text-center text-white md:bottom-1/4">
         <h1 className="p-2 text-3xl md:p-4 md:text-4xl">青山阅微筆記</h1>

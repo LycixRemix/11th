@@ -30,7 +30,7 @@ export default function Menu({ className }: { className?: string }) {
       path: '',
     },
     {
-      name: '友联',
+      name: '友链',
       path: '/friend',
     },
   ]
