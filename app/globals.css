@@ -40,6 +40,10 @@
     @apply relative;
   }
 
+  .prose .img-alt p {
+    text-align: center;
+  }
+
   .prose pre[data-language]::before {
     @apply absolute right-2 top-2 text-base uppercase leading-4;
     content: attr(data-language);
