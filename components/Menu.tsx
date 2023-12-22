@@ -3,12 +3,12 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { FiMenu, FiX } from 'react-icons/fi'
+import { LuAlignRight, LuX } from 'react-icons/lu'
 
 const IconStyle = {
   width: '26px',
   height: '26px',
-  color: 'white',
+  color: '#F6F6F6',
 }
 
 export default function Menu({ className }: { className?: string }) {
@@ -45,7 +45,7 @@ export default function Menu({ className }: { className?: string }) {
     <div className={className}>
       <div className="relative inline-block text-left">
         <div className="text-3xls cursor-pointer" onClick={() => setActive(!active)}>
-          {active ? <FiX style={IconStyle} /> : <FiMenu style={IconStyle} />}
+          {active ? <LuX style={IconStyle} /> : <LuAlignRight style={IconStyle} />}
         </div>
 
         {active && (
