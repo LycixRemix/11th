@@ -7,9 +7,9 @@ import Layout from '@/components/Layout'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: '青山阅微笔记 - 生活其实很简单，过了今天就是明天',
+  title: '青梅煮茶初试探 - 生活其实很简单，过了今天就是明天',
   description: '生活其实很简单，过了今天就是明天',
-  authors: [{ name: '青山阅微笔记', url: 'https://liucy.cn' }],
+  authors: [{ name: '青梅煮茶初试探', url: 'https://liucy.cn' }],
   keywords: 'Code, ACG, Blog, 青山, 笔记',
   icons: {
     icon: [
