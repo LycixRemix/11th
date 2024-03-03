@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "生活其实很简单，过了今天就是明天",
-  "author": "liucys <chengyongliu@foxmail.com>",
+  "author": "LycixRemix <chengyongliu@foxmail.com>",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
