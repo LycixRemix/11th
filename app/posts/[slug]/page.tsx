@@ -2,6 +2,7 @@ import { allDocs } from 'contentlayer/generated'
 import { format } from 'date-fns'
 import { notFound } from 'next/navigation'
 import { FiCalendar, FiTag } from 'react-icons/fi'
+import Comment from '@/components/Comment'
 import MDX from '@/components/MDX'
 
 export const generateStaticParams = async () => allDocs.map((doc) => ({ slug: doc.slug }))
@@ -9,7 +10,7 @@ export const generateStaticParams = async () => allDocs.map((doc) => ({ slug: do
 export const generateMetadata = async ({ params }: { params: { slug: string } }) => {
   const doc = allDocs.find((doc) => doc.slug === decodeURIComponent(params.slug))
   return {
-    title: `${doc?.title} - 青山阅微笔记`,
+    title: `${doc?.title} - LycixRemix`,
     description: doc?.description,
     keywords: doc?.labels.join(','),
   }
@@ -37,6 +38,7 @@ export default function PostLayout({ params }: { params: { slug: string } }) {
         </div>
         <MDX code={doc.body.code} />
       </article>
+      <Comment term={doc.title} />
     </div>
   )
 }

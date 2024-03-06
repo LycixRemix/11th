@@ -22,6 +22,7 @@
     ]
   },
   "dependencies": {
+    "@giscus/react": "^3.0.0",
     "@types/aos": "^3.0.7",
     "add": "^2.0.6",
     "aos": "^2.3.4",
