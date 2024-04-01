@@ -10,7 +10,7 @@ export const generateStaticParams = async () => allDocs.map((doc) => ({ slug: do
 export const generateMetadata = async ({ params }: { params: { slug: string } }) => {
   const doc = allDocs.find((doc) => doc.slug === decodeURIComponent(params.slug))
   return {
-    title: `${doc?.title} - LycixRemix`,
+    title: `${doc?.title} - 阿琳LycixRemix`,
     description: doc?.description,
     keywords: doc?.labels.join(','),
   }

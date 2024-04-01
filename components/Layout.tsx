@@ -11,7 +11,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         <div className="md:flex-1 md:px-28">{children}</div>
-        <img src="/images/99653585_p1.png" alt="live" className="bottom-[-50px] right-0 z-[-2] h-auto w-96 md:fixed" />
+        <img
+          src="/images/99653585_p1.png"
+          alt="live"
+          className="fixed bottom-[-50px] right-0 z-[-2] hidden h-auto w-96 md:block"
+        />
       </div>
       <BackToTop />
     </>

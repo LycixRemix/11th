@@ -49,9 +49,16 @@ export const Post = defineDocumentType(() => ({
   },
 }))
 
+export const About = defineDocumentType(() => ({
+  name: 'About',
+  filePathPattern: 'about/index.mdx',
+  contentType: 'mdx',
+  isSingleton: true,
+}))
+
 export default makeSource({
   contentDirPath: 'docs',
-  documentTypes: [Post],
+  documentTypes: [Post, About],
   mdx: {
     remarkPlugins: [smartypants, emoji, remarkGfm],
     rehypePlugins: [

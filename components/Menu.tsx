@@ -26,12 +26,16 @@ export default function Menu({ className }: { className?: string }) {
       path: '/about',
     },
     {
+      name: '友链',
+      path: '/friends',
+    },
+    {
       name: '图库',
       path: '',
     },
     {
-      name: '友链',
-      path: '/friend',
+      name: '书籍',
+      path: '/books',
     },
   ]
 
